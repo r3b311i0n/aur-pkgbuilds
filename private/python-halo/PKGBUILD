@@ -1,0 +1,18 @@
+# Maintainer: Amal Karunarathna <nasashinega@gmail.com>
+
+_pypiname=halo
+pkgname=python-halo
+pkgver=0.0.2
+pkgrel=1
+pkgdesc='Beautiful terminal spinners in Python.'
+arch=('any')
+url='https://github.com/ManrajGrover/halo'
+license=('MIT')
+makedepends=('python-setuptools')
+source=("https://pypi.python.org/packages/dd/18/4f77390b426a591baf81f2b98039e88c865da742562e045e9e329f391edc/${_pypiname}-${pkgver}.tar.gz")
+sha256sums=('a05acc8e5a6747cef07a132d9685b817887b5db952685f30266ba865c85b13ef')
+
+package() {
+  cd "${srcdir}/${_pypiname}-${pkgver}"
+  python setup.py install --root="${pkgdir}" --optimize=1
+}

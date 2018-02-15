@@ -1,0 +1,20 @@
+# Maintainer: Amal Karunarathna <nasashinega@gmail.com>
+
+_pypiname=slt
+pkgname=python-slt
+pkgver=0.9.0
+pkgrel=1
+pkgdesc='Unofficial usage checker for SLT Internet.'
+arch=('any')
+url='https://pypi.python.org/pypi/slt'
+license=('MIT')
+depends=('python' 'firefox' 'geckodriver' 'python-colorama' 'python-selenium' 'python-halo' 'python-pillow' 'python-xdg' 'python-termcolor')
+optdepends=('termpix')
+makedepends=('python-setuptools')
+source=("https://pypi.python.org/packages/70/d7/ad114747baf4904d2e089532ca52eac88ae2f08e4f35ea1abfcbf3f399bb/${_pypiname}-${pkgver}.tar.gz")
+sha512sums=('b371cc3d03fd6ce09b63095f7863b09477abc93660bf2498fe5c64cf5a5f4b60b6181976dc1acbe1668e2b0c55c65dbe53cf1e8424510d4ff7ec93fe7b1e285a')
+
+package() {
+  cd "${srcdir}/${_pypiname}-${pkgver}"
+  python setup.py install --root="${pkgdir}" --optimize=1
+}
